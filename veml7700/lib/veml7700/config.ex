@@ -1,6 +1,6 @@
 defmodule Veml7700.Config do
   defstruct gain: :gain_1_4th,
-            int_time: :it_100_ms,
+            int_time: :it_100ms,
             shutdown: false,
             interrupt: false
 
@@ -18,7 +18,7 @@ defmodule Veml7700.Config do
       int_time(config.int_time)::4,
       persistance_protect::2,
       reserved::2,
-      interupt(config.interrupt)::1,
+      interrupt(config.interrupt)::1,
       shutdown(config.shutdown)::1
     >>
 
@@ -42,8 +42,39 @@ defmodule Veml7700.Config do
   defp int_time(:it_default), do: int_time(:it_100ms)
 
   defp shutdown(true), do: 1
-  defp shurdown(_), do: 0
+  defp shutdown(_), do: 0
 
   defp interrupt(true), do: 1
   defp interrupt(_), do: 0
+
+  @to_lumens_factor %{
+    {:it_800ms, :gain_2x} => 0.0036,
+    {:it_800ms, :gain_1x} => 0.0072,
+    {:it_800ms, :gain_1_4th} => 0.0288,
+    {:it_800ms, :gain_1_8th} => 0.0576,
+    {:it_400ms, :gain_2x} => 0.0072,
+    {:it_400ms, :gain_1x} => 0.0144,
+    {:it_400ms, :gain_1_4th} => 0.0576,
+    {:it_400ms, :gain_1_8th} => 0.1152,
+    {:it_200ms, :gain_2x} => 0.0144,
+    {:it_200ms, :gain_1x} => 0.0288,
+    {:it_200ms, :gain_1_4th} => 0.1152,
+    {:it_200ms, :gain_1_8th} => 0.2304,
+    {:it_100ms, :gain_2x} => 0.0288,
+    {:it_100ms, :gain_1x} => 0.0576,
+    {:it_100ms, :gain_1_4th} => 0.2304,
+    {:it_100ms, :gain_1_8th} => 0.4608,
+    {:it_50ms, :gain_2x} => 0.0576,
+    {:it_50ms, :gain_1x} => 0.1152,
+    {:it_50ms, :gain_1_4th} => 0.4608,
+    {:it_50ms, :gain_1_8th} => 0.9216,
+    {:it_25ms, :gain_2x} => 0.1152,
+    {:it_25ms, :gain_1x} => 0.2304,
+    {:it_25ms, :gain_1_4th} => 0.9216,
+    {:it_25ms, :gain_1_8th} => 1.8432
+  }
+
+  def to_lumens(config, measurement) do
+    @to_lumens_factor[{config.int_time, config.gain}] * measurement
+  end
 end

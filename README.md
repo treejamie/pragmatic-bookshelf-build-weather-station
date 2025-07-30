@@ -1,7 +1,8 @@
 # pragmatic-bookshelf-build-weather-station
 
-## Sensors
+The official code repository can be found [here](https://github.com/akoutmos/nerves_weather_station)
 
+## Sensors
 
 
 ### Adafruit SGP40 air quality sensor

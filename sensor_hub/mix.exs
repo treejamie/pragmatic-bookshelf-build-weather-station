@@ -49,6 +49,9 @@ defmodule SensorHub.MixProject do
       {:toolshed, "~> 0.4.0"},
       {:circuits_i2c, "~> 1.0"},
 
+      # now the ponchos
+      {:veml7700, path: "../veml7700", targets: @all_targets},
+
       # Allow Nerves.Runtime on host to support development, testing and CI.
       # See config/host.exs for usage.
       {:nerves_runtime, "~> 0.13.0"},
