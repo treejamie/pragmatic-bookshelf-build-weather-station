@@ -49,8 +49,10 @@ defmodule SensorHub.MixProject do
       {:toolshed, "~> 0.4.0"},
       {:circuits_i2c, "~> 1.0"},
 
-      # now the ponchos
+      # now the sensors
       {:veml7700, path: "../veml7700", targets: @all_targets},
+      {:sgp40, "~> 0.1.7", targets: @all_targets},
+      {:bmp280, "~> 0.2.13", targets: @all_targets},
 
       # Allow Nerves.Runtime on host to support development, testing and CI.
       # See config/host.exs for usage.
@@ -64,18 +66,18 @@ defmodule SensorHub.MixProject do
       # bumps to Nerves systems. Since these include Linux kernel and Erlang
       # version updates, please review their release notes in case
       # changes to your application are needed.
-      {:nerves_system_rpi, "~> 1.24", runtime: false, targets: :rpi},
-      {:nerves_system_rpi0, "~> 1.24", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi2, "~> 1.24", runtime: false, targets: :rpi2},
-      {:nerves_system_rpi3, "~> 1.24", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi3a, "~> 1.24", runtime: false, targets: :rpi3a},
-      {:nerves_system_rpi4, "~> 1.24", runtime: false, targets: :rpi4},
-      {:nerves_system_rpi5, "~> 0.2", runtime: false, targets: :rpi5},
-      {:nerves_system_bbb, "~> 2.19", runtime: false, targets: :bbb},
-      {:nerves_system_osd32mp1, "~> 0.15", runtime: false, targets: :osd32mp1},
-      {:nerves_system_x86_64, "~> 1.24", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.8", runtime: false, targets: :grisp2},
-      {:nerves_system_mangopi_mq_pro, "~> 0.6", runtime: false, targets: :mangopi_mq_pro}
+      # {:nerves_system_rpi, "~> 1.24", runtime: false, targets: :rpi},
+      # {:nerves_system_rpi0, "~> 1.24", runtime: false, targets: :rpi0},
+      # {:nerves_system_rpi2, "~> 1.24", runtime: false, targets: :rpi2},
+      # {:nerves_system_rpi3, "~> 1.24", runtime: false, targets: :rpi3},
+      {:nerves_system_rpi3a, "~> 1.24", runtime: false, targets: :rpi3a}
+      # {:nerves_system_rpi4, "~> 1.24", runtime: false, targets: :rpi4},
+      # {:nerves_system_rpi5, "~> 0.2", runtime: false, targets: :rpi5},
+      # {:nerves_system_bbb, "~> 2.19", runtime: false, targets: :bbb},
+      # {:nerves_system_osd32mp1, "~> 0.15", runtime: false, targets: :osd32mp1},
+      # {:nerves_system_x86_64, "~> 1.24", runtime: false, targets: :x86_64},
+      # {:nerves_system_grisp2, "~> 0.8", runtime: false, targets: :grisp2},
+      # {:nerves_system_mangopi_mq_pro, "~> 0.6", runtime: false, targets: :mangopi_mq_pro}
     ]
   end
 
