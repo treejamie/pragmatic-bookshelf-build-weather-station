@@ -10,6 +10,7 @@ The official code repository can be found [here](https://github.com/akoutmos/ner
 0x59 => :sgp40
 
 * [Guide](https://learn.adafruit.com/adafruit-sgp40/overview)
+* [Product Info](https://cdn.sparkfun.com/assets/e/9/3/f/e/GAS_AN_SGP40_VOC_Index_for_Experts_D1.pdf)
 * [Datasheet](https://cdn-learn.adafruit.com/assets/assets/000/097/511/original/Sensirion_Gas-Sensors_SGP40_Datasheet.pdf?1607381770)
 
 ### Adafruit VEML7700 Ambient Light Sensor
