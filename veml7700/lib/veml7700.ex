@@ -3,14 +3,16 @@ defmodule Veml7700 do
 
   require Logger
 
+  @name :VEML7700
+
   alias Veml7700.{Comm, Config}
 
   def start_link(options \\ %{}) do
-    GenServer.start_link(__MODULE__, options, name: "VEML770")
+    GenServer.start_link(__MODULE__, options, name: @name)
   end
 
   def get_measurement do
-    GenServer.call(__MODULE__, :get_measurement)
+    GenServer.call(@name, :get_measurement)
   end
 
   @impl true
