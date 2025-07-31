@@ -6,7 +6,7 @@ defmodule Veml7700 do
   alias Veml7700.{Comm, Config}
 
   def start_link(options \\ %{}) do
-    GenServer.start_link(__MODULE__, options, name: __MODULE__)
+    GenServer.start_link(__MODULE__, options, name: "VEML770")
   end
 
   def get_measurement do
