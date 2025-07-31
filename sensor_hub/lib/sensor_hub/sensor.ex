@@ -22,13 +22,13 @@ defmodule SensorHub.Sensor do
       :gas_resistance_ohms
     ]
 
-  def fields(VEML7700), do: [:light_lumens]
+  def fields(Veml7700), do: [:light_lumens]
 
   def read_fn(SGP40) do
     fn -> Process.whereis(:sgp40) |> SGP40.measure() end
   end
 
-  def read_fn(VEML7700), do: fn -> Veml7700.get_measurement() end
+  def read_fn(Veml7700), do: fn -> Veml7700.get_measurement() end
 
   def read_fn(BME680) do
     fn -> Process.whereis(BME680) |> BMP280.measure() end
@@ -62,12 +62,12 @@ defmodule SensorHub.Sensor do
         # TODO: fix altitude by correcting for sea level pressure. I am not -146m below sea level
 
         _ ->
-          %{}
+          nil
       end
     end
   end
 
-  def convert_fn(VEML7770) do
+  def convert_fn(Veml7700) do
     fn reading ->
       %{light_lumens: reading}
     end
