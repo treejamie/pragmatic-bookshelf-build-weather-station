@@ -16,7 +16,7 @@ defmodule SensorHub.Sensor do
     do: [
       :altitude_m,
       :pressure_pa,
-      :temprature_c,
+      :temperature_c,
       :humidity_rh,
       :dew_point_c,
       :gas_resistance_ohms
@@ -53,7 +53,7 @@ defmodule SensorHub.Sensor do
           Map.take(measurement, [
             :altitude_m,
             :pressure_pa,
-            :temprature_c,
+            :temperature_c,
             :humidity_rh,
             :dew_point_c,
             :gas_resistance_ohms
