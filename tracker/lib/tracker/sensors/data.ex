@@ -16,7 +16,7 @@ defmodule Tracker.Sensors.Data do
 
   @derive {Jason.Encoder, only: @allowed_fields}
   @primary_key false
-  schema :sensor_data do
+  schema "sensor_data" do
     field(:timestamp, :naive_datetime)
     field(:altitude_m, :decimal)
     field(:pressure_pa, :decimal)
@@ -28,7 +28,7 @@ defmodule Tracker.Sensors.Data do
     field(:lumens, :decimal)
   end
 
-  def create_changeset(data = %Data{}, attrs) do
+  def create_changeset(data = %__MODULE__{}, attrs) do
     timestamp =
       NaiveDateTime.utc_now()
       |> NaiveDateTime.truncate(:second)
