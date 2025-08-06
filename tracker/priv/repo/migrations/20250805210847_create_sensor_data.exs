@@ -13,6 +13,7 @@ defmodule Tracker.Repo.Migrations.CreateSensorData do
       add(:dew_point_c, :decimal, null: false)
       add(:gas_resistance_ohms, :decimal, null: false)
       add(:voc_index, :decimal, null: false)
+      add(:lumens, :decimal, null: false)
     end
 
     execute("SELECT create_hypertable('sensor_data', 'timestamp')")
