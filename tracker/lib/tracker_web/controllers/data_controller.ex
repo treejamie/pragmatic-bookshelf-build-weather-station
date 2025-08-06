@@ -7,6 +7,8 @@ defmodule TrackerWeb.DataController do
   @doc """
   This is a learning exercise and there's no validation of user
   input. Obviously that's not how you'd do it in production.
+  HMAC - that's how I'd do it. Ensure everthing was signed and
+  I'd validate all the signatures.
 
   """
   def create(conn, params) do

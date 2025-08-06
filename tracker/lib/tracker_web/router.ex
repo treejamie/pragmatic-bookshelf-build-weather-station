@@ -2,6 +2,11 @@ defmodule TrackerWeb.Router do
   use TrackerWeb, :router
 
   pipeline :api do
+    #
+    # NOTE: This is an API endpoint and in a real production setting
+    # I'd have ensure there were one or more plugs to handle authentication
+    # and authorisation.
+    # But this is learning land and so there's bok all.
     plug(:accepts, ["json"])
   end
 
