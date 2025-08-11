@@ -51,6 +51,7 @@ defmodule SensorHub.MixProject do
 
       # now the sensors
       {:veml7700, path: "../veml7700", targets: @all_targets},
+      {:publisher, path: "../publisher", targets: @all_targets},
       {:sgp40, "~> 0.1.7", targets: @all_targets},
       {:bmp280, "~> 0.2.13", targets: @all_targets},
 

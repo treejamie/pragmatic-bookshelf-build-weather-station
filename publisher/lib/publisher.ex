@@ -25,10 +25,10 @@ defmodule Publisher do
   end
 
   defp measure(state) do
-    data =
+    measurements =
       Enum.reduce(state.sensors, %{}, fn sensor, acc ->
         sensor_data = sensor.read.() |> sensor.convert.()
-        Map.merge(acc, data)
+        Map.merge(acc, sensor_data)
       end)
 
     %{state | measurements: measurements}

@@ -34,10 +34,23 @@ defmodule SensorHub.Application do
   else
     defp target_children() do
       [
-        # Children for all targets except host
-        # Starts a worker by calling: Target.Worker.start_link(arg)
-        # {Target.Worker, arg},
+        {SGP40, []},
+        {BME680, [i2c_address: 0x77, name: BME280]},
+        {Veml7700, %{}},
+        {Finch, name: TrackerClient},
+        {
+          Publisher,
+          %{sensors: sensors(), api_url: api_url()}
+        }
       ]
     end
+  end
+
+  defp sensors do
+    [Sensor.new(BME680), Sensor.new(Veml7700), Sensor.new(SGP40)]
+  end
+
+  defp api_url() do
+    Application.get_env(:sensor_hub, :api_url)
   end
 end

@@ -23,3 +23,5 @@ if Mix.target() == :host do
 else
   import_config "target.exs"
 end
+
+config :sensor_hub, :api_url, "http://192.168.11.64:4000/api/v1/sensor/data"
