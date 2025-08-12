@@ -13,7 +13,7 @@ config :tracker,
 
 # Configures the endpoint
 config :tracker, TrackerWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "0.0.0.0"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [json: TrackerWeb.ErrorJSON],
