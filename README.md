@@ -27,3 +27,11 @@ The official code repository can be found [here](https://github.com/akoutmos/ner
 * [Guide](https://learn.adafruit.com/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas)
 * [Datasheet](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf)
 
+## Janky Box
+
+Right now the poor device is a mixture of used cardboard boxes
+old Pi containers and cable ties.
+
+![Janky Box of Sensors](janky_box_of_sensensors.jpeg)
+
+I need to get on it with Fusion and design and print a better box
