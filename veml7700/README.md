@@ -19,3 +19,11 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/veml7700>.
 
+## Janky Box
+
+Right now the poor device is a mixture of used cardboard boxes
+old Pi containers and cable ties.
+
+![Janky Box of Sensors](janky_box_of_sensensors.jpeg)
+
+I need to get on it with Fusion and design and print a better box
