@@ -7,12 +7,11 @@ defmodule SensorHub.Application do
 
   @impl true
   def start(_type, _args) do
+    # Children for all targets
+    # Starts a worker by calling: SensorHub.Worker.start_link(arg)
+    # {SensorHub.Worker, arg},
     children =
-      [
-        # Children for all targets
-        # Starts a worker by calling: SensorHub.Worker.start_link(arg)
-        # {SensorHub.Worker, arg},
-      ] ++ target_children()
+      [] ++ target_children()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -37,6 +36,9 @@ defmodule SensorHub.Application do
         # Children for all targets except host
         # Starts a worker by calling: Target.Worker.start_link(arg)
         # {Target.Worker, arg},
+        {SGP40, [name: :SGP40]},
+        {BMP280, [i2c_address: 0x77, name: :BME680]},
+        {Veml7700, [name: :VEML7700]}
       ]
     end
   end

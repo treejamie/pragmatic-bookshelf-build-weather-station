@@ -31,7 +31,7 @@ defmodule SensorHub.Sensor do
   def read_fn(Veml7700), do: fn -> Veml7700.get_measurement() end
 
   def read_fn(BME680) do
-    fn -> Process.whereis(BME680) |> BMP280.measure() end
+    fn -> Process.whereis(:BME680) |> BMP280.measure() end
   end
 
   def convert_fn(SGP40) do
