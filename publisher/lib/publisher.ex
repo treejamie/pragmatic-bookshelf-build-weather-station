@@ -17,6 +17,9 @@ defmodule Publisher do
       sensors: options[:sensors],
       measurements: :no_measurements
     }
+
+    schedule_publish(state.interval)
+    {:ok, state}
   end
 
   @impl true
@@ -43,6 +46,11 @@ defmodule Publisher do
         JSON.encode!(state.measurements)
       )
       |> Finch.request(TrackerClient)
+
+    Logger.debug("server response: #{inspect(result)}")
+
+    schedule_publish(state.interval)
+    state
   end
 
   defp schedule_publish(interval) do

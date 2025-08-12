@@ -4,6 +4,7 @@ defmodule SensorHub.Application do
   @moduledoc false
 
   use Application
+  alias SensorHub.Sensor
 
   @impl true
   def start(_type, _args) do
@@ -35,19 +36,19 @@ defmodule SensorHub.Application do
       [
         {SGP40, [name: :SGP40]},
         {BMP280, [i2c_address: 0x77, name: :BME680]},
-        {Veml7700, [name: :VEML7700]}
+        {Veml7700, %{}},
         {Finch, name: TrackerClient},
         {
           Publisher,
           %{sensors: sensors(), api_url: api_url()}
         }
-
       ]
     end
   end
 
   defp sensors do
-    [Sensor.new(BME680), Sensor.new(Veml7700), Sensor.new(SGP40)]
+    []
+    # [Sensor.new(BME680), Sensor.new(Veml7700), Sensor.new(SGP40)]
   end
 
   defp api_url() do
