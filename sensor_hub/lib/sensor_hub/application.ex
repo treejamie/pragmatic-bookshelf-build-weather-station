@@ -47,8 +47,8 @@ defmodule SensorHub.Application do
   end
 
   defp sensors do
-    []
-    # [Sensor.new(BME680), Sensor.new(Veml7700), Sensor.new(SGP40)]
+    # []
+    [Sensor.new(BME680), Sensor.new(Veml7700), Sensor.new(SGP40)]
   end
 
   defp api_url() do

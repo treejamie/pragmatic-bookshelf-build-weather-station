@@ -35,7 +35,7 @@ defmodule Tracker.Sensors.Data do
 
     data
     |> cast(attrs, @allowed_fields)
-    |> validate_required(@allowed_fields)
     |> put_change(:timestamp, timestamp)
+    |> validate_required(@allowed_fields)
   end
 end

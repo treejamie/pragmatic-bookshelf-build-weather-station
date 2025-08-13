@@ -25,7 +25,7 @@ defmodule SensorHub.Sensor do
   def fields(Veml7700), do: [:light_lumens]
 
   def read_fn(SGP40) do
-    fn -> Process.whereis(:sgp40) |> SGP40.measure() end
+    fn -> Process.whereis(:SGP40) |> SGP40.measure() end
   end
 
   def read_fn(Veml7700), do: fn -> Veml7700.get_measurement() end
@@ -69,7 +69,7 @@ defmodule SensorHub.Sensor do
 
   def convert_fn(Veml7700) do
     fn reading ->
-      %{light_lumens: reading}
+      %{lumens: reading}
     end
   end
 
