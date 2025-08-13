@@ -12,8 +12,6 @@ defmodule TrackerWeb.DataController do
 
   """
   def create(conn, params) do
-    IO.inspect(params)
-
     case(SensorData.create_entry(params)) do
       {:ok, data} ->
         Logger.debug("Success: done a data")
