@@ -14,8 +14,6 @@ defmodule TrackerWeb.DataController do
   def create(conn, params) do
     case(SensorData.create_entry(params)) do
       {:ok, data} ->
-        Logger.debug("Success: done a data")
-
         conn
         |> put_status(:created)
         |> json(data)
