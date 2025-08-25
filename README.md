@@ -32,6 +32,6 @@ The official code repository can be found [here](https://github.com/akoutmos/ner
 Right now the poor device is a mixture of used cardboard boxes
 old Pi containers and cable ties.
 
-![Janky Box of Sensors](janky_box_of_sensensors.jpeg)
+![Janky Box of Se127nsors](janky_box_of_sensensors.jpeg)
 
 I need to get on it with Fusion and design and print a better box
